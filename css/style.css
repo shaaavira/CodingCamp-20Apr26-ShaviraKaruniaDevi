@@ -1,15 +1,19 @@
 /* =========================
-   BASE (LIGHT MODE 🥚)
+   BASE (LIGHT MODE 🥚✨)
 ========================= */
 
 body {
     font-family: 'Fredoka', poppins;
     background-color: #fff3b0;
 
-    /* 🥚 soft pattern (ga ganggu) */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cpath d='M30 70 C30 45 50 35 70 38 C95 35 110 55 105 80 C98 110 70 115 50 100 C35 90 30 80 30 70 Z' fill='%23fff8dc'/%3E%3Ccircle cx='70' cy='75' r='16' fill='%23ffe8a3'/%3E%3C/svg%3E");
+    /* 🥚 telur sama, cuma di-offset biar ga kaku */
+    background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M28 60 C28 40 45 30 60 32 C80 30 95 45 92 65 C88 90 60 95 45 85 C30 78 28 70 28 60 Z' fill='%23fff8dc'/%3E%3Ccircle cx='60' cy='60' r='15' fill='%23ffd166'/%3E%3Ccircle cx='54' cy='55' r='3' fill='%233c2417'/%3E%3Ccircle cx='66' cy='55' r='3' fill='%233c2417'/%3E%3Ccircle cx='47' cy='66' r='3' fill='%23ff9aa2'/%3E%3Ccircle cx='73' cy='66' r='3' fill='%23ff9aa2'/%3E%3Cpath d='M52 67 Q60 78 68 67 Z' fill='%233c2417'/%3E%3C/svg%3E"),
 
-    background-size: 140px 140px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M28 60 C28 40 45 30 60 32 C80 30 95 45 92 65 C88 90 60 95 45 85 C30 78 28 70 28 60 Z' fill='%23fff8dc'/%3E%3Ccircle cx='60' cy='60' r='15' fill='%23ffd166'/%3E%3Ccircle cx='54' cy='55' r='3' fill='%233c2417'/%3E%3Ccircle cx='66' cy='55' r='3' fill='%233c2417'/%3E%3Ccircle cx='47' cy='66' r='3' fill='%23ff9aa2'/%3E%3Ccircle cx='73' cy='66' r='3' fill='%23ff9aa2'/%3E%3Cpath d='M52 67 Q60 78 68 67 Z' fill='%233c2417'/%3E%3C/svg%3E");
+
+    background-size: 70px 70px, 75px 75px;
+    background-position: 0 0, 35px 45px;
     background-repeat: repeat;
 
     margin: 0;
@@ -70,29 +74,28 @@ body {
     border-radius: 26px;
     padding: 12px;
     margin-bottom: 10px;
+    text-shadow:
+        2px 2px 0 #fff,
+        0 0 10px rgba(255,183,0,0.6);
 }
 
 /* =========================
    TEXT
 ========================= */
 
-h1 {
-    font-size: 25px;
-}
+h1 { font-size: 25px; margin: 10px 0; }
 
-h2 {
-    color: #fb8500;
-    font-size: 13px;
-}
+h2 { color: #fb8500; font-size: 13px; margin: 6px 0; }
 
-#time,
-#timer {
+#time, #timer {
     color: #fb8500;
     text-align: center;
+    text-shadow: 2px 2px 0 #fff, 0 0 8px rgba(255,183,0,0.8);
 }
 
 #date {
     color: #fb8500;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
 }
@@ -105,6 +108,7 @@ input {
     padding: 8px;
     border-radius: 12px;
     border: none;
+    margin-right: 5px;
 }
 
 button {
@@ -116,13 +120,13 @@ button {
     font-weight: 600;
 }
 
+button:hover { transform: scale(1.05); }
+
 /* =========================
-   LIST (FIX BALIK NORMAL)
+   LIST
 ========================= */
 
-ul {
-    padding: 0;
-}
+ul { padding: 0; }
 
 li {
     list-style: none;
@@ -135,7 +139,7 @@ li {
 }
 
 /* =========================
-   LINKS (FIX)
+   LINKS
 ========================= */
 
 #links a {
@@ -146,12 +150,6 @@ li {
     background: #fff3b0;
     color: #5a3d00;
     text-decoration: none;
-}
-
-.link-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
 }
 
 /* =========================
@@ -166,94 +164,45 @@ li {
 }
 
 /* =========================
-   THEME BUTTON (KANAN ATAS)
+   THEME BUTTON (FIX POSISI)
 ========================= */
 
 #themeToggle {
     position: fixed;
     top: 20px;
-    right: 20px;
-    left: auto;
+    right: 20px; /* ✅ BALIK KE KANAN */
+    left: auto;  /* ❌ pastikan tidak ke kiri */
     z-index: 999;
-
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    font-size: 20px;
     border: none;
     cursor: pointer;
-
     background: #fff4c9;
     color: #5a3d00;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+#themeToggle:hover {
+    transform: scale(1.08);
 }
 
 /* =========================
-   DARK MODE ☕ (FIX TOTAL)
+   DARK MODE ☕✨
 ========================= */
 
 body.dark {
     background-color: #2f221d;
 
-    /* ☕ pattern soft */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg stroke='%235f463a' fill='none' stroke-width='2'%3E%3Crect x='50' y='70' width='60' height='40' rx='12'/%3E%3Cpath d='M110 80 q20 0 20 15 q0 15 -20 15'/%3E%3C/g%3E%3C/svg%3E");
+    background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg stroke='%235f463a' fill='none' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3C/g%3E%3C/svg%3E"),
 
-    background-size: 160px 160px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg stroke='%235f463a' fill='none' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-size: 100px 100px, 120px 120px;
+    background-position: 0 0, 40px 60px;
     background-repeat: repeat;
 
-    color: #f5e6d8;
-}
-
-/* card */
-body.dark .card {
-    background: #5b4338;
-    color: #f5e6d8;
-}
-
-/* title */
-body.dark .main-title {
-    background: #5b4338;
-    color: #ffd8a0;
-}
-
-/* text */
-body.dark h1,
-body.dark h2,
-body.dark p,
-body.dark span,
-body.dark li,
-body.dark a,
-body.dark label {
-    color: #f5e6d8;
-}
-
-body.dark h2 {
-    color: #ffd8a0;
-}
-
-/* list */
-body.dark li {
-    background: #6b5043;
-}
-
-/* input */
-body.dark input {
-    background: #f0d9c2;
-    color: #3c2417;
-}
-
-/* button */
-body.dark button {
-    background: linear-gradient(135deg,#c08a5b,#8b5e3c);
     color: #fff7ef;
-}
-
-/* links */
-body.dark #links a {
-    background: #6b5043;
-    color: #fff0db;
-}
-
-/* theme button */
-body.dark #themeToggle {
-    background: #d6a77a;
-    color: #3c2417;
 }
