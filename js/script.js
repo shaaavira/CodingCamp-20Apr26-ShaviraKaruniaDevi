@@ -159,7 +159,8 @@ function getEmoji(text) {
     if (text.includes("olahraga")) return "🏃";
     if (text.includes("minum") || text.includes("kopi")) return "☕";
 
-    return "🐣";
+    const isDark = document.body.classList.contains("dark");
+    return isDark ? "☕" : "🐣";
 }
 
 function toggleTask(index) {
@@ -218,7 +219,6 @@ function renderTasks() {
         let span = document.createElement("span");
 
         const emoji = getEmoji(task.text);
-
         span.innerText = emoji + " " + task.text;
 
         span.onclick = () => toggleTask(index);
@@ -348,13 +348,13 @@ function updateThemeText() {
     }
 }
 
-// 🔥 COZY EMOJI
+// 🔥 FIX JUDUL + EMOJI
 function updateThemeEmoji() {
     const isDark = document.body.classList.contains("dark");
 
     const timerTitle = document.querySelector(".timer-card h2");
-    const taskTitle = document.querySelectorAll(".card h2")[2];
-    const linkTitle = document.querySelectorAll(".card h2")[3];
+    const taskTitle = document.querySelectorAll(".row .card")[1]?.querySelector("h2");
+    const linkTitle = document.querySelectorAll(".container > .card")[1]?.querySelector("h2");
 
     if (timerTitle) {
         timerTitle.innerText = isDark ? "☕ Coffee Focus" : "🍳 Focus Timer";
@@ -367,6 +367,9 @@ function updateThemeEmoji() {
     if (linkTitle) {
         linkTitle.innerText = isDark ? "🌰 Quick Links" : "🐥 Quick Links";
     }
+
+    renderTasks();
+    renderLinks();
 }
 
 function updateThemeIcon() {
