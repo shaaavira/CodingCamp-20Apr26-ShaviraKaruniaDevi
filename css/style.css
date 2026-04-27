@@ -1,108 +1,20 @@
 body {
     font-family: 'Fredoka', poppins;
     background-color: #fff3b0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cellipse cx='70' cy='100' rx='50' ry='60' fill='%23fff7e6'/%3E%3Ccircle cx='70' cy='100' r='28' fill='%23ffb703'/%3E%3C/svg%3E");
-    background-size: 60px 60px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Ccircle cx='60' cy='60' r='18' fill='%23ffd166'/%3E%3Ccircle cx='180' cy='150' r='14' fill='%23ffb703'/%3E%3Ccircle cx='120' cy='220' r='12' fill='%23ffe08a'/%3E%3C/svg%3E");
+    background-size: 70px 70px;
     margin: 0;
     transition: 0.3s;
 }
+
+/* =========================
+   LAYOUT
+========================= */
 
 .container {
     max-width: 650px;
     margin: auto;
     padding: 15px;
-}
-
-.card {
-    background: #fff8dc;
-    border-radius: 16px;
-    padding: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 6px 10px rgba(255,180,0,0.25);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-}
-
-.main-title {
-    text-align: center;
-    color: #fb8500;
-    font-size: 24px;
-    background: #fff8dc;
-    border-radius: 24px;
-    padding: 12px;
-    margin-bottom: 10px;
-}
-
-h1 {
-    font-size: 25px;
-    margin: 10px 0;
-}
-
-h2 {
-    color: #fb8500;
-    font-size: 14px;
-}
-
-#time,
-#timer {
-    color: #fb8500;
-    text-align: center;
-    text-shadow:
-        2px 2px 0 #fff,
-        0 0 8px rgba(255,183,0,0.8);
-}
-
-#date {
-    color: #fb8500;
-    font-weight: bold;
-    text-align: center;
-}
-
-button {
-    padding: 7px 12px;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(135deg,#ffd166,#ffb703);
-    color: #5a3d00;
-    cursor: pointer;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-
-input {
-    padding: 8px;
-    border-radius: 12px;
-    border: none;
-    margin-right: 5px;
-}
-
-ul {
-    padding: 0;
-}
-
-li {
-    list-style: none;
-    background: #fff1b6;
-    padding: 8px;
-    border-radius: 12px;
-    margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#links a {
-    display: inline-block;
-    margin: 5px;
-    padding: 8px 15px;
-    border-radius: 999px;
-    background: #fff3b0;
-    color: #5a3d00;
-    text-decoration: none;
 }
 
 .row {
@@ -118,13 +30,6 @@ li {
     flex: 1.2;
 }
 
-.timer-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-}
-
 @media (max-width:768px) {
     .row {
         flex-direction: column;
@@ -132,76 +37,140 @@ li {
 }
 
 /* =========================
-   DARK MODE COFFEE ☕
+   CARD
 ========================= */
 
-body.dark {
-    background: #3a2b24 !important;
-
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg opacity='0.13'%3E%3Crect x='55' y='70' width='40' height='28' rx='6' fill='%23f7e5d0'/%3E%3Cpath d='M95 76 h12 a8 8 0 0 1 0 16 h-12' stroke='%23f7e5d0' stroke-width='4' fill='none'/%3E%3Cpath d='M65 62 q4 -8 8 0' stroke='%23f7e5d0' stroke-width='3' fill='none'/%3E%3Cpath d='M78 62 q4 -8 8 0' stroke='%23f7e5d0' stroke-width='3' fill='none'/%3E%3C/g%3E%3C/svg%3E") !important;
-
-    background-size: 95px 95px !important;
-    background-repeat: repeat !important;
-    background-attachment: fixed !important;
-    color: #fffaf5 !important;
+.card {
+    background: #fff8dc;
+    border-radius: 18px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 12px rgba(255,180,0,0.20);
+    transition: 0.3s;
 }
 
-body.dark .main-title {
-    background: #5b4338 !important;
-    color: #fff4dd !important;
+.card:hover {
+    transform: translateY(-3px);
 }
 
-body.dark .card {
-    background: #6d5245 !important;
-    color: #fffaf5 !important;
+.main-title {
+    text-align: center;
+    color: #fb8500;
+    font-size: 24px;
+    background: #fff8dc;
+    border-radius: 26px;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-shadow:
+        2px 2px 0 #fff,
+        0 0 10px rgba(255,183,0,0.6);
 }
 
-body.dark h1,
-body.dark h2,
-body.dark p,
-body.dark span,
-body.dark li,
-body.dark a {
-    color: #fffaf5 !important;
+/* =========================
+   TEXT
+========================= */
+
+h1 {
+    font-size: 25px;
+    margin: 10px 0;
 }
 
-body.dark h2 {
-    color: #ffdca8 !important;
+h2 {
+    color: #fb8500;
+    font-size: 13px;
+    margin: 6px 0;
 }
 
-body.dark #time,
-body.dark #timer,
-body.dark #date {
-    color: #ffe2b8 !important;
-    text-shadow: none !important;
+#time,
+#timer {
+    color: #fb8500;
+    text-align: center;
+    text-shadow:
+        2px 2px 0 #fff,
+        0 0 8px rgba(255,183,0,0.8);
 }
 
-body.dark li {
-    background: #816255 !important;
+#date {
+    color: #fb8500;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }
 
-body.dark input {
-    background: #927060 !important;
-    color: white !important;
+/* =========================
+   FORM
+========================= */
+
+input {
+    padding: 8px;
+    border-radius: 12px;
+    border: none;
+    margin-right: 5px;
+    outline: none;
 }
 
-body.dark #nameInput {
-    background: #ffe8cc !important;
-    color: #3b2416 !important;
+button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#ffd166,#ffb703);
+    color: #5a3d00;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
 }
 
-body.dark input::placeholder {
-    color: #f7dbc4 !important;
+button:hover {
+    transform: scale(1.05);
 }
 
-body.dark button {
-    background: linear-gradient(135deg,#f2be7d,#d59056) !important;
-    color: #3d2416 !important;
+/* =========================
+   LIST
+========================= */
+
+ul {
+    padding: 0;
 }
 
-body.dark #links a {
-    background: #816255 !important;
-    color: #fff0d8 !important;
+li {
+    list-style: none;
+    background: #fff1b6;
+    padding: 8px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+#links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 999px;
+    background: #fff3b0;
+    color: #5a3d00;
+    text-decoration: none;
+}
+
+.link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* =========================
+   TIMER BUTTONS
+========================= */
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 /* =========================
@@ -227,6 +196,83 @@ body.dark #links a {
 
 #themeToggle:hover {
     transform: scale(1.08);
+}
+
+/* =========================
+   DARK MODE MOCHA ☕🤎
+========================= */
+
+body.dark {
+    background-color: #2f221d !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%235f463a' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3Cpath d='M50 64 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-size: 95px 95px !important;
+    color: #fff7ef !important;
+}
+
+body.dark .main-title {
+    background: #5b4338 !important;
+    color: #ffe2bf !important;
+    text-shadow: none !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+body.dark .card {
+    background: #6b5043 !important;
+    color: #fff7ef !important;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark p,
+body.dark span,
+body.dark li,
+body.dark a,
+body.dark label {
+    color: #fff7ef !important;
+}
+
+body.dark h2 {
+    color: #ffd8a0 !important;
+}
+
+body.dark #time,
+body.dark #timer {
+    color: #ffe0b6 !important;
+    text-shadow: none !important;
+}
+
+body.dark #date {
+    color: #ffe8ca !important;
+}
+
+body.dark li {
+    background: #7b5d4f !important;
+}
+
+body.dark input {
+    background: #ffe7cc !important;
+    color: #3c2417 !important;
+}
+
+body.dark input::placeholder {
+    color: #8a6a58 !important;
+}
+
+body.dark button {
+    background: linear-gradient(135deg,#efbf86,#d69155) !important;
+    color: #3c2417 !important;
+}
+
+body.dark #links a {
+    background: #7b5d4f !important;
+    color: #fff0db !important;
+}
+
+/* Greeting + nama sama warna */
+body.dark #greeting,
+body.dark #greeting #nameDisplay {
+    color: #ffd8a0 !important;
 }
 
 body.dark #themeToggle {
