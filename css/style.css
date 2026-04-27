@@ -1,11 +1,10 @@
 body {
     font-family: 'Fredoka', poppins;
     background-color: #fff3b0;
-
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cellipse cx='70' cy='100' rx='50' ry='60' fill='%23fff7e6'/%3E%3Ccircle cx='70' cy='100' r='28' fill='%23ffb703'/%3E%3Cpath d='M58 92 Q62 98 66 92' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M74 92 Q78 98 82 92' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M55 105 Q70 125 85 105' stroke='%23000' stroke-width='3' fill='none'/%3E%3Cellipse cx='190' cy='170' rx='50' ry='60' fill='%23fff7e6'/%3E%3Ccircle cx='190' cy='170' r='28' fill='%23ffb703'/%3E%3Cpath d='M178 162 Q182 168 186 162' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M194 162 Q198 168 202 162' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M175 175 Q190 195 205 175' stroke='%23000' stroke-width='3' fill='none'/%3E%3Ccircle cx='130' cy='70' r='30' fill='%23ffd60a'/%3E%3Ccircle cx='118' cy='65' r='4' fill='%23000'/%3E%3Ccircle cx='142' cy='65' r='4' fill='%23000'/%3E%3Cpath d='M120 80 Q130 90 140 80' stroke='%23000' stroke-width='3' fill='none'/%3E%3Cpolygon points='126,72 134,72 130,78' fill='%23ff8800'/%3E%3Cellipse cx='112' cy='82' rx='10' ry='6' fill='%23ffe066'/%3E%3Cellipse cx='148' cy='82' rx='10' ry='6' fill='%23ffe066'/%3E%3Ccircle cx='40' cy='200' r='20' fill='%23ffd60a'/%3E%3Ccircle cx='34' cy='195' r='3' fill='%23000'/%3E%3Ccircle cx='46' cy='195' r='3' fill='%23000'/%3E%3Cpath d='M35 205 Q40 210 45 205' stroke='%23000' stroke-width='2' fill='none'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23ffd166'/%3E%3Ccircle cx='230' cy='40' r='4' fill='%23ffd166'/%3E%3Ccircle cx='50' cy='230' r='4' fill='%23ffd166'/%3E%3C/svg%3E");
-
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cellipse cx='70' cy='100' rx='50' ry='60' fill='%23fff7e6'/%3E%3Ccircle cx='70' cy='100' r='28' fill='%23ffb703'/%3E%3Cpath d='M58 92 Q62 98 66 92' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M74 92 Q78 98 82 92' stroke='%23000' stroke-width='2' fill='none'/%3E%3Cpath d='M55 105 Q70 125 85 105' stroke='%23000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
     background-size: 60px 60px;
     margin: 0;
+    transition: 0.3s;
 }
 
 .container {
@@ -14,13 +13,12 @@ body {
     padding: 15px;
 }
 
-
 .card {
     background: #fff8dc;
     border-radius: 16px;
     padding: 12px;
     margin-bottom: 8px;
-    box-shadow: 0 6px 10px rgba(255, 180, 0, 0.25);
+    box-shadow: 0 6px 10px rgba(255,180,0,0.25);
     transition: 0.3s;
 }
 
@@ -28,13 +26,14 @@ body {
     transform: translateY(-3px);
 }
 
-#time, #timer {
-    color: #fb8500; 
-    text-shadow: 
+#time,
+#timer {
+    color: #fb8500;
+    text-align: center;
+    text-shadow:
         2px 2px 0 #fff,
-        0 0 8px rgba(255, 183, 0, 0.8),
-        0 0 8px rgba(255, 140, 0, 0.6);
-        text-align: center;   
+        0 0 8px rgba(255,183,0,0.8),
+        0 0 8px rgba(255,140,0,0.6);
 }
 
 h1 {
@@ -45,15 +44,13 @@ h1 {
 h2 {
     color: #fb8500;
     font-size: 12px;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 button {
     padding: 6px 12px;
     border: none;
     border-radius: 14px;
-    background: linear-gradient(135deg, #ffd166, #ffb703);
+    background: linear-gradient(135deg,#ffd166,#ffb703);
     color: #5a3d00;
     cursor: pointer;
     transition: 0.3s;
@@ -61,7 +58,6 @@ button {
 
 button:hover {
     transform: scale(1.05);
-    background: linear-gradient(135deg, #ffb703, #fb8500);
 }
 
 input {
@@ -70,7 +66,6 @@ input {
     border: none;
     margin-right: 5px;
 }
-
 
 ul {
     padding: 0;
@@ -86,13 +81,12 @@ li {
     justify-content: space-between;
 }
 
-
 #links a {
     display: inline-block;
     margin: 5px;
     padding: 8px 15px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #fff3b0, #fff3b0);
+    background: #fff3b0;
     color: #5a3d00;
     text-decoration: none;
 }
@@ -103,30 +97,23 @@ li {
     gap: 5px;
 }
 
-
-.delete-link-btn {
-    background: transparent !important;
-    border: none;
-    cursor: pointer;
-}
 .timer-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 8px;
     margin-top: 10px;
 }
+
 #date {
-    font-family: 'Fredoka', sans-serif;
     color: #fb8500;
-    font-size: 16px; 
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
 }
+
 .row {
     display: flex;
     gap: 15px;
-    align-items: stretch;
 }
 
 .row .card {
@@ -137,111 +124,41 @@ li {
     flex: 1.2;
 }
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .row {
         flex-direction: column;
     }
 }
+
 .main-title {
     text-align: center;
     color: #fb8500;
-    font-size: 24 px;
+    font-size: 24px;
     background: #fff8dc;
     border-radius: 26px;
     padding: 12px;
     margin-bottom: 10px;
-
-    text-shadow:
-        2px 2px 0 #fff,
-        0 0 10px rgba(255, 183, 0, 0.6);
 }
 
-/* =======================
-   DARK MODE COZY BROWN 🤎
-======================= */
+/* =========================
+   DARK MODE BROWN ESTETIK 🤎
+========================= */
 
 body.dark {
-    background: linear-gradient(135deg, #4b3428, #5c4033, #3b281f);
-    color: #fffaf5;
+    background: linear-gradient(135deg,#2e1f18,#4a3328,#5a4033);
     background-image: none;
+    color: #fff8f2;
 }
 
 body.dark .main-title {
-    background: rgba(255, 248, 240, 0.10);
+    background: #6b4b3c;
     color: #ffe7c2;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.20);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 body.dark .card {
-    background: rgba(255, 248, 240, 0.08);
-    color: #fffaf5;
-    border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-}
-
-body.dark h1,
-body.dark h2,
-body.dark p,
-body.dark span,
-body.dark li,
-body.dark label {
-    color: #fffaf5;
-}
-
-body.dark h2 {
-    color: #ffd89e;
-}
-
-body.dark #time,
-body.dark #timer {
-    color: #ffd89e;
-    text-shadow: 0 0 10px rgba(255, 210, 140, 0.35);
-}
-
-body.dark #date {
-    color: #ffe7c2;
-}
-
-body.dark li {
-    background: rgba(255,255,255,0.05);
-}
-
-body.dark input {
-    background: rgba(255,255,255,0.10);
-    color: #ffffff;
-    border: none;
-}
-
-body.dark input::placeholder {
-    color: #f2dbc5;
-}
-
-body.dark button {
-    background: linear-gradient(135deg, #d9a066, #c98742);
-    color: #2f1a0f;
-    font-weight: 600;
-}
-
-/* =======================
-   DARK MODE COZY BROWN 🤎
-======================= */
-
-body.dark {
-    background: linear-gradient(135deg, #3b281f, #4b3428, #5c4033);
-    color: #fffaf5;
-    background-image: none;
-}
-
-body.dark .main-title {
-    background: #5b4031;
-    color: #ffe7c2;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-}
-
-body.dark .card {
-    background: #6a4a39;
-    color: #fffaf5;
-    border: none;
+    background: #7b5746;
+    color: #fff8f2;
     box-shadow: 0 8px 18px rgba(0,0,0,0.22);
 }
 
@@ -250,8 +167,8 @@ body.dark h2,
 body.dark p,
 body.dark span,
 body.dark li,
-body.dark label {
-    color: #fffaf5;
+body.dark a {
+    color: #fff8f2;
 }
 
 body.dark h2 {
@@ -261,7 +178,7 @@ body.dark h2 {
 body.dark #time,
 body.dark #timer {
     color: #ffd89e;
-    text-shadow: 0 0 10px rgba(255, 210, 140, 0.35);
+    text-shadow: 0 0 12px rgba(255,220,160,0.35);
 }
 
 body.dark #date {
@@ -269,42 +186,32 @@ body.dark #date {
 }
 
 body.dark li {
-    background: #7a5744;
+    background: #8a6551;
 }
 
 body.dark input {
-    background: #8a6650;
-    color: #ffffff;
-    border: none;
+    background: #9a735c;
+    color: white;
 }
 
 body.dark input::placeholder {
-    color: #f2dbc5;
+    color: #f7dbc4;
 }
 
 body.dark button {
-    background: linear-gradient(135deg, #d9a066, #c98742);
-    color: #2f1a0f;
-    font-weight: 600;
-}
-
-body.dark button:hover {
-    background: linear-gradient(135deg, #e5b17a, #d79652);
+    background: linear-gradient(135deg,#f0bb7c,#d18b52);
+    color: #3b2416;
+    font-weight: bold;
 }
 
 body.dark #links a {
-    background: #7a5744;
+    background: #8a6551;
     color: #ffe7c2;
 }
 
-body.dark #themeToggle {
-    background: #f5d2a5;
-    color: #4a2b1a;
-}
-
-/* =======================
-   THEME BUTTON POSITION
-======================= */
+/* =========================
+   THEME BUTTON
+========================= */
 
 #themeToggle {
     position: fixed;
@@ -314,9 +221,20 @@ body.dark #themeToggle {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    transition: all 0.25s ease;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background: #fff4c9;
+    color: #5a3d00;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: 0.25s;
 }
 
 #themeToggle:hover {
-    transform: translateY(-2px) scale(1.05);
+    transform: scale(1.08);
+}
+
+body.dark #themeToggle {
+    background: #f5d2a5;
+    color: #4a2b1a;
 }
