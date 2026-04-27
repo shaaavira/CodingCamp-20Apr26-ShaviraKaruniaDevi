@@ -241,14 +241,17 @@ li {
     /* input name */
     #nameInput {
         width: 60% !important;
-        font-size: 14px;
+        font-size: 13px;
         display: block;
         margin: 0 auto 8px auto;
+    #clockCard button {
+        padding: 5px 9px;
+        font-size: 13px;
     }
 
     /* timer input kecil */
     #customMinutes {
-        width: 90px !important;
+        width: 80px !important;
         text-align: center;
     }
 
