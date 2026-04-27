@@ -411,12 +411,34 @@ body.dark #themeToggle {
         align-items: center;
     }
 
-    /* paksa semua input tidak ganggu layout */
-    input {
-        width: 100% !important;
-        box-sizing: border-box;
+    @media (max-width: 768px) {
+
+    /* ❌ JANGAN full semua input lagi */
+
+    /* TASK INPUT */
+    #taskInput {
+        width: 80% !important;
+        max-width: 280px;
+        display: block;
+        margin: 5px auto;
     }
 
+    /* QUICK LINK INPUT */
+    #linkName,
+    #linkURL {
+        width: 80% !important;
+        max-width: 280px;
+        display: block;
+        margin: 5px auto;
+    }
+
+    /* TIMER INPUT (tetap kecil) */
+    #customMinutes {
+        width: 70px !important;
+        text-align: center;
+    }
+
+    /* tombol tetap aman */
     button {
         width: auto !important;
     }
