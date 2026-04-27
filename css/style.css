@@ -1,20 +1,19 @@
 /* =========================
-   BASE (LIGHT MODE 🥚 SOFT - SAFE)
+   BASE (LIGHT MODE 🥚)
 ========================= */
 
 body {
     font-family: 'Fredoka', poppins;
     background-color: #fff3b0;
-    margin: 0;
 
-    /* pattern langsung di background (AMAN) */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M28 60 C28 40 45 30 60 32 C80 30 95 45 92 65 C88 90 60 95 45 85 C30 78 28 70 28 60 Z' fill='%23fff8dc'/%3E%3Ccircle cx='60' cy='60' r='15' fill='%23ffe8a3'/%3E%3C/svg%3E");
+    /* 🥚 soft pattern (ga ganggu) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cpath d='M30 70 C30 45 50 35 70 38 C95 35 110 55 105 80 C98 110 70 115 50 100 C35 90 30 80 30 70 Z' fill='%23fff8dc'/%3E%3Ccircle cx='70' cy='75' r='16' fill='%23ffe8a3'/%3E%3C/svg%3E");
 
-    background-size: 120px 120px;
+    background-size: 140px 140px;
     background-repeat: repeat;
 
-    /* 👇 bikin soft tanpa layer tambahan */
-    opacity: 1;
+    margin: 0;
+    transition: 0.3s;
 }
 
 /* =========================
@@ -55,22 +54,39 @@ body {
     border-radius: 18px;
     padding: 12px;
     margin-bottom: 10px;
-    box-shadow: 0 6px 12px rgba(255,180,0,0.12);
+    box-shadow: 0 6px 12px rgba(255,180,0,0.20);
     transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.main-title {
+    text-align: center;
+    color: #fb8500;
+    font-size: 24px;
+    background: #fff8dc;
+    border-radius: 26px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
 /* =========================
-   TEXT (JANGAN TERLALU GLOBAL)
+   TEXT
 ========================= */
 
-h1 { font-size: 25px; }
+h1 {
+    font-size: 25px;
+}
 
 h2 {
     color: #fb8500;
     font-size: 13px;
 }
 
-#time, #timer {
+#time,
+#timer {
     color: #fb8500;
     text-align: center;
 }
@@ -97,10 +113,60 @@ button {
     background: linear-gradient(135deg,#ffd166,#ffb703);
     color: #5a3d00;
     cursor: pointer;
+    font-weight: 600;
 }
 
 /* =========================
-   THEME BUTTON (FIX)
+   LIST (FIX BALIK NORMAL)
+========================= */
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    background: #fff1b6;
+    padding: 8px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================
+   LINKS (FIX)
+========================= */
+
+#links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 999px;
+    background: #fff3b0;
+    color: #5a3d00;
+    text-decoration: none;
+}
+
+.link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* =========================
+   TIMER BUTTONS
+========================= */
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* =========================
+   THEME BUTTON (KANAN ATAS)
 ========================= */
 
 #themeToggle {
@@ -113,16 +179,21 @@ button {
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background: #fff4c9;
+    color: #5a3d00;
 }
 
 /* =========================
-   DARK MODE (CLEAN & SAFE)
+   DARK MODE ☕ (FIX TOTAL)
 ========================= */
 
 body.dark {
     background-color: #2f221d;
 
-    /* ☕ pattern langsung */
+    /* ☕ pattern soft */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg stroke='%235f463a' fill='none' stroke-width='2'%3E%3Crect x='50' y='70' width='60' height='40' rx='12'/%3E%3Cpath d='M110 80 q20 0 20 15 q0 15 -20 15'/%3E%3C/g%3E%3C/svg%3E");
 
     background-size: 160px 160px;
@@ -131,14 +202,58 @@ body.dark {
     color: #f5e6d8;
 }
 
-/* card dark */
+/* card */
 body.dark .card {
     background: #5b4338;
     color: #f5e6d8;
 }
 
-/* button dark */
+/* title */
+body.dark .main-title {
+    background: #5b4338;
+    color: #ffd8a0;
+}
+
+/* text */
+body.dark h1,
+body.dark h2,
+body.dark p,
+body.dark span,
+body.dark li,
+body.dark a,
+body.dark label {
+    color: #f5e6d8;
+}
+
+body.dark h2 {
+    color: #ffd8a0;
+}
+
+/* list */
+body.dark li {
+    background: #6b5043;
+}
+
+/* input */
+body.dark input {
+    background: #f0d9c2;
+    color: #3c2417;
+}
+
+/* button */
 body.dark button {
     background: linear-gradient(135deg,#c08a5b,#8b5e3c);
     color: #fff7ef;
+}
+
+/* links */
+body.dark #links a {
+    background: #6b5043;
+    color: #fff0db;
+}
+
+/* theme button */
+body.dark #themeToggle {
+    background: #d6a77a;
+    color: #3c2417;
 }
