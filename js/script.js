@@ -304,8 +304,26 @@ function renderLinks() {
 // =======================
 // THEME (DARK / LIGHT MODE)
 // =======================
+
+window.onload = function () {
+    document.getElementById("nameDisplay").innerText = userName;
+    document.getElementById("nameInput").value = userName;
+
+    updateTime();
+    updateTimerDisplay();
+    renderTasks();
+    renderLinks();
+
+    loadTheme();
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+        btn.onclick = toggleTheme;
+    }
+};
+
 function loadTheme() {
-    const savedTheme = localStorage.getItem("theme") || "light";
+    let savedTheme = localStorage.getItem("theme");
 
     if (savedTheme === "dark") {
         document.body.classList.add("dark");
@@ -317,12 +335,12 @@ function loadTheme() {
 }
 
 function toggleTheme() {
-    document.body.classList.toggle("dark");
-
     if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-    } else {
+        document.body.classList.remove("dark");
         localStorage.setItem("theme", "light");
+    } else {
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
     }
 
     updateThemeIcon();
