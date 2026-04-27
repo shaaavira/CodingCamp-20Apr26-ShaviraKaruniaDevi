@@ -333,16 +333,28 @@ body.dark #themeToggle {
 
     #greeting {
         font-size: 14px;
+    #greeting {
+        font-size: 14px !important;
+        font-weight: 500;
     }
-    /* =========================
-       TIMER INPUT FIX (BIAR TIDAK PANJANG)
-    ========================= */
-    #customMinutes {
+    #nameDisplay {
+        font-size: 14px !important;
+        font-weight: 600;
+    }
+    #nameInput {
         width: 60% !important;
-        max-width: 140px;
-        display: block;
+        font-size: 13px;
+        padding: 6px;
+    }
+        #customMinutes {
+        width: 120px !important;
+        max-width: 120px !important;
+        display: inline-block !important;
         margin: 0 auto;
-    }    
+    }
+        #customMinutes {
+        width: 120px !important;
+    }
     /* =========================
        ROW FIX
     ========================= */
@@ -363,7 +375,6 @@ body.dark #themeToggle {
         width: auto !important;
         min-width: 90px;
     }
-
     /* =========================
        TASK CENTER FIX (INI YANG SEBELUMNYA GAGAL)
     ========================= */
