@@ -464,7 +464,12 @@ body.dark #themeToggle {
     #links a {
         display: inline-flex;
     }
+}
+@media (max-width: 768px) {
 
+    /* =========================
+       JAM (HARUS PALING MENONJOL)
+    ========================= */
     #time {
         font-size: 34px !important;
         font-weight: 800;
@@ -498,4 +503,3 @@ body.dark #themeToggle {
         padding: 6px 10px;
     }
 }
-
