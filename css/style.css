@@ -204,22 +204,36 @@ li {
 }
 
 /* =========================
-   🔥 GREETING FIX (INI YANG BARU)
+   ✅ GREETING (KHUSUS)
 ========================= */
 
-.card p {
+#greeting {
     font-size: 18px;
     font-weight: 600;
 }
 
-.card p span {
+#nameDisplay {
     font-size: 18px;
     font-weight: 700;
 }
 
-.card input {
+#nameInput {
     font-size: 16px;
     padding: 10px;
+}
+
+/* =========================
+   ✅ FIX JARAK JAM & TANGGAL
+========================= */
+
+#time,
+#date {
+    margin: 0;
+    line-height: 1.1;
+}
+
+#time {
+    margin-bottom: 2px;
 }
 
 /* =========================
@@ -278,17 +292,7 @@ body.dark input {
     background: #ffe7cc !important;
     color: #3c2417 !important;
 }
-/* =========================
-   FIX JARAK JAM & TANGGAL
-========================= */
 
-#time {
-    margin-bottom: 4px; /* kecilin jarak ke bawah */
-}
-
-#date {
-    margin-top: 0; /* hilangin jarak atas */
-}
 body.dark input::placeholder {
     color: #8a6a58 !important;
 }
@@ -303,20 +307,12 @@ body.dark #links a {
     color: #fff0db !important;
 }
 
+body.dark #greeting,
+body.dark #nameDisplay {
+    color: #ffd8a0 !important;
+}
+
 body.dark #themeToggle {
     background: #ffe0ba !important;
     color: #4a2a18 !important;
-}
-/* =========================
-   FIX JARAK JAM & TANGGAL (FORCE)
-========================= */
-
-#time,
-#date {
-    margin: 0 !important;
-    line-height: 1.1;
-}
-
-#time {
-    margin-bottom: 2px !important;
 }
