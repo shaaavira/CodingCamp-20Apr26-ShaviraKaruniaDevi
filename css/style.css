@@ -352,8 +352,27 @@ body.dark #themeToggle {
         display: inline-block !important;
         margin: 0 auto;
     }
-        #customMinutes {
-        width: 120px !important;
+
+    #customMinutes {
+        width: 60px !important;
+        padding: 6px;
+        font-size: 14px;
+    }
+    .timer-card div[style*="text-align:center"] {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+    
+    .timer-card div[style*="text-align:center"] input {
+        margin: 0 !important;
+    }
+    
+    .timer-card div[style*="text-align:center"] button {
+        margin: 0 !important;
+        padding: 6px 10px;
     }
     /* =========================
        ROW FIX
