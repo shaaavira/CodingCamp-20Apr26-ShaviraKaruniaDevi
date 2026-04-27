@@ -204,7 +204,7 @@ li {
 }
 
 /* =========================
-   GREETING
+   ✅ GREETING (KHUSUS)
 ========================= */
 
 #greeting {
@@ -223,7 +223,7 @@ li {
 }
 
 /* =========================
-   FIX JARAK JAM & TANGGAL
+   ✅ FIX JARAK JAM & TANGGAL
 ========================= */
 
 #time,
@@ -237,75 +237,344 @@ li {
 }
 
 /* =========================
-   🔥 TAMBAHAN (INPUT GROUP)
+   DARK MODE MOCHA ☕🤎
 ========================= */
 
-.input-group {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
+body.dark {
+    background-color: #2f221d !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%235f463a' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3Cpath d='M50 64 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-size: 60px 60px !important;
+    color: #fff7ef !important;
 }
 
-.input-group input {
-    flex: 1;
+body.dark .main-title {
+    background: #5b4338 !important;
+    color: #ffe2bf !important;
+    text-shadow: none !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
+body.dark .card {
+    background: #6b5043 !important;
+    color: #fff7ef !important;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark p,
+body.dark span,
+body.dark li,
+body.dark a,
+body.dark label {
+    color: #fff7ef !important;
+}
+
+body.dark h2 {
+    color: #ffd8a0 !important;
+}
+
+body.dark #time,
+body.dark #timer {
+    color: #ffe0b6 !important;
+    text-shadow: none !important;
+}
+
+body.dark #date {
+    color: #ffe8ca !important;
+}
+
+body.dark li {
+    background: #7b5d4f !important;
+}
+
+body.dark input {
+    background: #ffe7cc !important;
+    color: #3c2417 !important;
+}
+
+body.dark input::placeholder {
+    color: #8a6a58 !important;
+}
+
+body.dark button {
+    background: linear-gradient(135deg,#efbf86,#d69155) !important;
+    color: #3c2417 !important;
+}
+
+body.dark #links a {
+    background: #7b5d4f !important;
+    color: #fff0db !important;
+}
+
+body.dark #greeting,
+body.dark #nameDisplay {
+    color: #ffd8a0 !important;
+}
+
+body.dark #themeToggle {
+    background: #ffe0ba !important;
+    color: #4a2a18 !important;
+}
 /* =========================
-   📱 MOBILE FIX (SAJA)
+   📱 MOBILE FIX (BIAR GA KECIL & LEBIH ENAK)
 ========================= */
 
 @media (max-width: 768px) {
 
-    .row {
-        flex-direction: column;
+    /* container full & lega */
+    .container {
+        max-width: 100%;
+        padding: 12px;
     }
 
+    /* judul utama */
+    .main-title {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* clock */
+    #time {
+        font-size: 36px;
+    }
+
+    #date {
+        font-size: 14px;
+    }
+
+    /* greeting */
+    #greeting {
+        font-size: 16px;
+    }
+
+    /* biar card lebih rapih */
     .card {
-        width: 100%;
-        box-sizing: border-box;
+        padding: 14px;
     }
 
+    /* input full biar enak di tap */
     input {
         width: 100%;
-        box-sizing: border-box;
+        margin-bottom: 6px;
+        font-size: 16px;
     }
 
-    .input-group {
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .input-group button {
+    /* tombol full */
+    button {
         width: 100%;
+        margin-top: 4px;
+        font-size: 15px;
     }
 
+    /* timer buttons jadi vertikal */
     .timer-buttons {
-        gap: 6px;
+        flex-direction: column;
     }
 
-    .timer-buttons button {
-        flex: 1;
-    }
-
+    /* link biar nggak kepotong */
     #links a {
         display: block;
         text-align: center;
     }
 }
-
 /* =========================
-   DARK MODE
+   📱 MOBILE CLEAN UI (FIX OVERFLOW & ESTETIK)
 ========================= */
 
-body.dark {
-    background-color: #2f221d !important;
-    color: #fff7ef !important;
-}
+@media (max-width: 768px) {
 
-body.dark .card {
-    background: #6b5043 !important;
-}
+    /* container full tapi rapi */
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
 
-body.dark button {
-    background: linear-gradient(135deg,#efbf86,#d69155) !important;
+    /* stack semua card ke bawah */
+    .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* card biar ga kepanjangan & lebih compact */
+    .card {
+        width: 100%;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    /* judul */
+    .main-title {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* clock lebih proporsional */
+    #time {
+        font-size: 34px;
+    }
+
+    #date {
+        font-size: 14px;
+    }
+
+    /* greeting */
+    #greeting {
+        font-size: 16px;
+    }
+
+    /* input + button lebih rapi */
+    input {
+        width: 100%;
+        margin: 5px 0;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    /* timer buttons jadi stack */
+    .timer-buttons {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    /* quick links biar ga melebar */
+    #links a {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+/* =========================
+   📱 MOBILE COMPACT FIX (ESTETIK)
+========================= */
+
+@media (max-width: 768px) {
+
+    /* card lebih compact */
+    .card {
+        padding: 12px !important;
+        margin-bottom: 12px;
+    }
+
+    /* judul */
+    h2 {
+        font-size: 14px;
+    }
+
+    /* clock biar ga terlalu gede */
+    #time {
+        font-size: 32px;
+    }
+
+    /* greeting */
+    #greeting {
+        font-size: 16px;
+    }
+
+    /* input lebih slim */
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+        margin: 6px 0;
+    }
+
+    /* 🔥 BUTTON FIX (INI YANG PALING NGARUH) */
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 12px;
+        margin-top: 5px;
+    }
+
+    /* timer buttons biar ga gede-gede */
+    .timer-buttons button {
+        padding: 9px;
+        font-size: 14px;
+    }
+
+    /* jarak antar tombol */
+    .timer-buttons {
+        gap: 5px;
+    }
+}
+/* =========================
+   📱 MOBILE LAYOUT FIX (RAPI & ESTETIK)
+========================= */
+
+@media (max-width: 768px) {
+
+    /* container */
+    .container {
+        padding: 12px;
+    }
+
+    /* card lebih slim */
+    .card {
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    /* clock */
+    #time {
+        font-size: 30px;
+    }
+
+    /* greeting */
+    #greeting {
+        font-size: 15px;
+    }
+
+    /* input */
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+        margin: 6px 0;
+    }
+
+    /* 🔥 tombol JANGAN full width lagi */
+    button {
+        width: auto;
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    /* 🔥 khusus area tombol jadi rata & ga kepanjangan */
+    .timer-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 6px;
+    }
+
+    .timer-buttons button {
+        flex: 1;
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    /* tombol add & save biar ga kepanjangan */
+    #clockCard button,
+    #taskTitle + input + button,
+    #linkTitle ~ button {
+        width: auto;
+        display: inline-block;
+        margin-top: 6px;
+    }
+
+    /* biar ga terlalu tinggi jaraknya */
+    h1 {
+        margin: 6px 0;
+    }
+
+    h2 {
+        margin: 4px 0;
+        font-size: 14px;
+    }
 }
