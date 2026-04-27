@@ -205,13 +205,32 @@ li {
 }
 
 /* =========================
+   GREETING (REVISI UKURAN)
+========================= */
+
+#greeting {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#greeting #nameDisplay {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#greeting input {
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* =========================
    DARK MODE MOCHA ☕🤎
 ========================= */
 
 body.dark {
     background-color: #2f221d !important;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%235f463a' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3Cpath d='M50 64 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0'/%3E%3C/g%3E%3C/svg%3E") !important;
-    background-size: 60px 60px !important; /* 🔥 REVISI: diperkecil dari 95px */
+    background-size: 60px 60px !important;
     color: #fff7ef !important;
 }
 
