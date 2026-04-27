@@ -278,7 +278,17 @@ body.dark input {
     background: #ffe7cc !important;
     color: #3c2417 !important;
 }
+/* =========================
+   FIX JARAK JAM & TANGGAL
+========================= */
 
+#time {
+    margin-bottom: 4px; /* kecilin jarak ke bawah */
+}
+
+#date {
+    margin-top: 0; /* hilangin jarak atas */
+}
 body.dark input::placeholder {
     color: #8a6a58 !important;
 }
