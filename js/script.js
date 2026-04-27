@@ -1,10 +1,10 @@
 let userName = localStorage.getItem("username") || "Guest";
 
 window.onload = function () {
-    // tampilkan nama saat pertama load
+    
     document.getElementById("nameDisplay").innerText = userName;
 
-    // isi input dengan nama sebelumnya
+    
     document.getElementById("nameInput").value = userName;
 
     updateTime();
@@ -302,23 +302,40 @@ function renderLinks() {
 }
 
 // =======================
-// THEME
+// THEME (DARK / LIGHT MODE)
 // =======================
 function loadTheme() {
-    const saved = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("theme") || "light";
 
-    const isDark = saved === "dark";
-    document.body.classList.toggle("dark", isDark);
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+    } else {
+        document.body.classList.remove("dark");
+    }
 
-    const btn = document.getElementById("themeToggle");
-    if (btn) btn.innerText = isDark ? "☀️" : "🌙";
+    updateThemeIcon();
 }
 
 function toggleTheme() {
-    const isDark = document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
 
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
 
+    updateThemeIcon();
+}
+
+function updateThemeIcon() {
     const btn = document.getElementById("themeToggle");
-    if (btn) btn.innerText = isDark ? "☀️" : "🌙";
+
+    if (!btn) return;
+
+    if (document.body.classList.contains("dark")) {
+        btn.innerText = "☀️";
+    } else {
+        btn.innerText = "🌙";
+    }
 }
