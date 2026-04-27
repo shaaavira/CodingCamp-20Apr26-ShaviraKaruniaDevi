@@ -390,12 +390,24 @@ body.dark #themeToggle {
         flex-direction: column !important;
     }
 
-    /* =========================
-       INPUT FULL FIX
+        /* =========================
+       INPUT GLOBAL FIX (HP)
+       Biar tidak semua jadi full width
     ========================= */
-    input {
-        width: 100% !important;
-        box-sizing: border-box;
+    
+    #taskInput,
+    #linkName,
+    #linkURL {
+        width: 80% !important;
+        max-width: 300px;
+        display: block;
+        margin: 5px auto;
+    }
+    
+    #customMinutes,
+    #nameInput {
+        width: 70px !important;
+        max-width: 150px;
     }
 
     /* =========================
