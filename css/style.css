@@ -316,71 +316,6 @@ body.dark #themeToggle {
     background: #ffe0ba !important;
     color: #4a2a18 !important;
 }
-/* =========================
-   📱 MOBILE FIX (BIAR GA KECIL & LEBIH ENAK)
-========================= */
-
-@media (max-width: 768px) {
-
-    /* container full & lega */
-    .container {
-        max-width: 100%;
-        padding: 12px;
-    }
-
-    /* judul utama */
-    .main-title {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    /* clock */
-    #time {
-        font-size: 36px;
-    }
-
-    #date {
-        font-size: 14px;
-    }
-
-    /* greeting */
-    #greeting {
-        font-size: 16px;
-    }
-
-    /* biar card lebih rapih */
-    .card {
-        padding: 14px;
-    }
-
-    /* input full biar enak di tap */
-    input {
-        width: 100%;
-        margin-bottom: 6px;
-        font-size: 16px;
-    }
-
-    /* tombol full */
-    button {
-        width: 100%;
-        margin-top: 4px;
-        font-size: 15px;
-    }
-
-    /* timer buttons jadi vertikal */
-    .timer-buttons {
-        flex-direction: column;
-    }
-
-    /* link biar nggak kepotong */
-    #links a {
-        display: block;
-        text-align: center;
-    }
-}
-/* =========================
-   📱 MOBILE FINAL (BERSIH & GA TABRAKAN)
-========================= */
 
 @media (max-width: 768px) {
 
@@ -416,17 +351,18 @@ body.dark #themeToggle {
         font-size: 16px;
     }
 
-    input {
-        width: 100%;
-        box-sizing: border-box;
-        margin: 6px 0;
-        font-size: 15px;
+    /* 🔥 FIX PALING PENTING */
+    .input-group {
+        flex-direction: column;
+        gap: 6px;
     }
 
-    button {
+    .input-group input {
         width: 100%;
-        margin-top: 6px;
-        font-size: 14px;
+    }
+
+    .input-group button {
+        width: 100%;
     }
 
     .timer-buttons {
