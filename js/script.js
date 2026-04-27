@@ -301,4 +301,27 @@ function renderLinks() {
     });
 }
 
+function loadTheme() {
+    const saved = localStorage.getItem("theme");
+
+    const isDark = saved === "dark";
+    document.body.classList.toggle("dark", isDark);
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) btn.innerText = isDark ? "☀️" : "🌙";
+}
+
+function toggleTheme() {
+    const isDark = document.body.classList.toggle("dark");
+
+    // simpan state TERKINI (bisa "dark" atau "light")
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) btn.innerText = isDark ? "☀️" : "🌙";
+}
 renderLinks();
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) btn.addEventListener("click", toggleTheme);
+});
