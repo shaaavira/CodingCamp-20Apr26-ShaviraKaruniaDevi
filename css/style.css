@@ -215,6 +215,10 @@ body.dark #themeToggle {
     background: #ffe0ba !important;
     color: #4a2a18 !important;
 }
+body.dark #nameInput {
+    color: #3b2416 !important;
+    background: #ffe8cc !important;
+}
 
 /* =========================
    THEME BUTTON
