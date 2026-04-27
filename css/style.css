@@ -156,24 +156,57 @@ li {
         0 0 10px rgba(255, 183, 0, 0.6);
 }
 body.dark {
-    background: linear-gradient(135deg,#2d2218,#3b2c20,#1f1711);
-    color: #fff6ea;
+=======================
+   DARK MODE 
+======================= 
+
+body.dark {
+    background: linear-gradient(135deg, #5a4636, #6b5443, #4a392d);
+    color: #fffdf8;
 }
 
 body.dark .card {
-    background: rgba(255,255,255,0.08);
-    color: #fff6ea;
+    background: rgba(255, 248, 240, 0.12);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    color: #ffffff;
 }
 
-body.dark input,
+body.dark h1,
+body.dark h2,
+body.dark p,
+body.dark span,
+body.dark li {
+    color: #ffffff;
+}
+
+body.dark input {
+    background: rgba(255,255,255,0.14);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.18);
+}
+
+body.dark input::placeholder {
+    color: #f0e6da;
+}
+
 body.dark button {
-    background: #4a3828;
-    color: white;
+    background: #ffe08a;
+    color: #4a2f00;
+    font-weight: 600;
+}
+
+body.dark button:hover {
+    background: #ffe9a8;
+}
+
+body.dark a {
+    color: #fff1a8;
 }
 
 body.dark #themeToggle {
-    background: #fff3c7;
-    color: #222;
+    background: #fff7dc;
+    color: #4a2f00;
 }
 =======================
    THEME BUTTON POSITION
