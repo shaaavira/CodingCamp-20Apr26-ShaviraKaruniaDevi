@@ -509,48 +509,79 @@ body.dark #themeToggle {
 ========================= */
 
 @media (max-width: 768px) {
+/* =========================
+   📱 MOBILE FINAL FIX (BERSIH & STABIL)
+========================= */
 
-    /* container */
+@media (max-width: 768px) {
+
     .container {
+        max-width: 100%;
         padding: 12px;
     }
 
-    /* card lebih slim */
+    .row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
     .card {
+        width: 100%;
         padding: 14px;
         border-radius: 16px;
+        margin-bottom: 12px;
     }
 
-    /* clock */
+    .main-title {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* TEXT */
+    h1 {
+        margin: 6px 0;
+    }
+
+    h2 {
+        margin: 4px 0;
+        font-size: 14px;
+    }
+
     #time {
-        font-size: 30px;
+        font-size: 32px;
     }
 
-    /* greeting */
+    #date {
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
     #greeting {
-        font-size: 15px;
+        font-size: 16px;
+        line-height: 1.4;
     }
 
-    /* input */
+    /* INPUT FIX (ANTI OFFSIDE) */
     input {
         width: 100%;
         padding: 10px;
         font-size: 15px;
         margin: 6px 0;
+        box-sizing: border-box;
     }
 
-    /* 🔥 tombol JANGAN full width lagi */
+    /* BUTTON NORMAL (ga kepanjangan) */
     button {
-        width: auto;
         padding: 8px 14px;
         font-size: 14px;
+        width: auto;
     }
 
-    /* 🔥 khusus area tombol jadi rata & ga kepanjangan */
+    /* TIMER BUTTONS RAPI */
     .timer-buttons {
-        flex-direction: row;
-        justify-content: space-between;
+        display: flex;
         gap: 6px;
+        margin-top: 10px;
     }
 
     .timer-buttons button {
@@ -559,14 +590,13 @@ body.dark #themeToggle {
         font-size: 13px;
     }
 
-    /* tombol add & save biar ga kepanjangan */
-    #clockCard button,
-    #taskTitle + input + button,
-    #linkTitle ~ button {
-        width: auto;
-        display: inline-block;
-        margin-top: 6px;
+    /* QUICK LINKS */
+    #links a {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
     }
+}
 
     /* biar ga terlalu tinggi jaraknya */
     h1 {
