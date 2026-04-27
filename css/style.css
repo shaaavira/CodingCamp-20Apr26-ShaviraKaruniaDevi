@@ -410,11 +410,6 @@ body.dark #themeToggle {
         justify-content: center;
         align-items: center;
     }
-
-    @media (max-width: 768px) {
-
-    /* ❌ JANGAN full semua input lagi */
-
     /* TASK INPUT */
     #taskInput {
         width: 80% !important;
