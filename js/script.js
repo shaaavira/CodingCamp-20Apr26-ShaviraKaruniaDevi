@@ -1,10 +1,7 @@
 let userName = localStorage.getItem("username") || "Guest";
 
 window.onload = function () {
-    
     document.getElementById("nameDisplay").innerText = userName;
-
-    
     document.getElementById("nameInput").value = userName;
 
     updateTime();
@@ -13,10 +10,8 @@ window.onload = function () {
     renderLinks();
     loadTheme();
 
-    const btn = document.getElementById("themeToggle");
-    if (btn) btn.addEventListener("click", toggleTheme);
+    document.getElementById("themeToggle").onclick = toggleTheme;
 };
-
 // =======================
 // SAVE NAME
 // =======================
@@ -305,30 +300,13 @@ function renderLinks() {
 // THEME (DARK / LIGHT MODE)
 // =======================
 
-window.onload = function () {
-    document.getElementById("nameDisplay").innerText = userName;
-    document.getElementById("nameInput").value = userName;
-
-    updateTime();
-    updateTimerDisplay();
-    renderTasks();
-    renderLinks();
-
-    loadTheme();
-
-    const btn = document.getElementById("themeToggle");
-    if (btn) {
-        btn.onclick = toggleTheme;
-    }
-};
-
 function loadTheme() {
-    let savedTheme = localStorage.getItem("theme");
+    const saved = localStorage.getItem("theme");
 
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark");
+    if (saved === "dark") {
+        document.body.className = "dark";
     } else {
-        document.body.classList.remove("dark");
+        document.body.className = "";
     }
 
     updateThemeIcon();
@@ -351,9 +329,6 @@ function updateThemeIcon() {
 
     if (!btn) return;
 
-    if (document.body.classList.contains("dark")) {
-        btn.innerText = "☀️";
-    } else {
-        btn.innerText = "🌙";
-    }
+    btn.innerText =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
