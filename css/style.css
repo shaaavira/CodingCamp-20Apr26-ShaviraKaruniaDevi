@@ -1,16 +1,10 @@
 body {
     font-family: 'Fredoka', poppins;
     background-color: #fff3b0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Ccircle cx='60' cy='60' r='18' fill='%23ffd166'/%3E%3Ccircle cx='180' cy='150' r='14' fill='%23ffb703'/%3E%3Ccircle cx='120' cy='220' r='12' fill='%23ffe08a'/%3E%3C/svg%3E");
-    background-size: 70px 70px;
     margin: 0;
-    transition: 0.3s;
 }
 
-/* =========================
-   LAYOUT
-========================= */
-
+/* layout */
 .container {
     max-width: 650px;
     margin: auto;
@@ -22,173 +16,55 @@ body {
     gap: 15px;
 }
 
-.row .card {
-    flex: 1;
-}
-
-.timer-card {
-    flex: 1.2;
-}
-
 @media (max-width:768px) {
     .row {
         flex-direction: column;
     }
 }
 
-/* =========================
-   CARD
-========================= */
-
+/* card */
 .card {
     background: #fff8dc;
     border-radius: 18px;
-    padding: 12px;
+    padding: 15px;
     margin-bottom: 10px;
-    box-shadow: 0 6px 12px rgba(255,180,0,0.20);
-    transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-}
-
+/* title */
 .main-title {
     text-align: center;
-    color: #fb8500;
-    font-size: 24px;
-    background: #fff8dc;
-    border-radius: 26px;
-    padding: 12px;
-    margin-bottom: 10px;
-    text-shadow:
-        2px 2px 0 #fff,
-        0 0 10px rgba(255,183,0,0.6);
 }
 
-/* =========================
-   TEXT
-========================= */
-
-h1 {
-    font-size: 25px;
-    margin: 10px 0;
-}
-
-h2 {
-    color: #fb8500;
-    font-size: 13px;
-    margin: 6px 0;
-}
-
-#time,
-#timer {
-    color: #fb8500;
-    text-align: center;
-    text-shadow:
-        2px 2px 0 #fff,
-        0 0 8px rgba(255,183,0,0.8);
-}
-
-#time {
-    font-size: 42px;
-    font-weight: bold;
-}
-
-#date {
-    color: #fb8500;
-    font-size: 16px;
-    font-weight: bold;
+/* text */
+#time, #timer {
     text-align: center;
 }
 
 /* =========================
-   FORM
+   🔥 FIX TIMER (INI KUNCI)
 ========================= */
 
-input {
-    padding: 8px;
-    border-radius: 12px;
-    border: none;
-    margin-right: 5px;
-    outline: none;
-}
-
-button {
-    padding: 7px 12px;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(135deg,#ffd166,#ffb703);
-    color: #5a3d00;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 600;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-
-/* =========================
-   🔥 FIX TIMER CENTER
-========================= */
-
-.timer-card .input-group {
+.timer-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 8px;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.timer-card .input-group input {
+/* hilangkan dorongan kiri */
+.timer-wrapper input {
     width: 120px;
+    margin: 0;
     text-align: center;
 }
 
-.timer-card .input-group button {
+/* tombol normal */
+.timer-wrapper button {
     width: auto;
 }
 
 /* =========================
-   LIST
-========================= */
-
-ul {
-    padding: 0;
-}
-
-li {
-    list-style: none;
-    background: #fff1b6;
-    padding: 8px;
-    border-radius: 12px;
-    margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* =========================
-   LINKS
-========================= */
-
-#links a {
-    display: inline-block;
-    margin: 5px;
-    padding: 8px 15px;
-    border-radius: 999px;
-    background: #fff3b0;
-    color: #5a3d00;
-    text-decoration: none;
-}
-
-.link-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* =========================
-   TIMER BUTTONS
+   BUTTON TIMER
 ========================= */
 
 .timer-buttons {
@@ -199,127 +75,39 @@ li {
 }
 
 /* =========================
-   THEME BUTTON
+   INPUT GLOBAL
 ========================= */
 
-#themeToggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    font-size: 20px;
+input {
+    padding: 8px;
+    border-radius: 12px;
+    border: none;
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
-    background: #fff4c9;
-    color: #5a3d00;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    transition: 0.25s;
-}
-
-#themeToggle:hover {
-    transform: scale(1.08);
 }
 
 /* =========================
-   GREETING
+   MOBILE FIX
 ========================= */
 
-#greeting {
-    font-size: 18px;
-    font-weight: 600;
-}
+@media (max-width:768px) {
 
-#nameDisplay {
-    font-size: 18px;
-    font-weight: 700;
-}
-
-#nameInput {
-    font-size: 16px;
-    padding: 10px;
-}
-
-/* =========================
-   FIX JAM & TANGGAL
-========================= */
-
-#time,
-#date {
-    margin: 0;
-    line-height: 1.1;
-}
-
-#time {
-    margin-bottom: 2px;
-}
-
-/* =========================
-   DARK MODE
-========================= */
-
-body.dark {
-    background-color: #2f221d !important;
-    color: #fff7ef !important;
-}
-
-/* =========================
-   MOBILE CLEAN FIX
-========================= */
-
-@media (max-width: 768px) {
-
-    .container {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .row {
+    .timer-wrapper {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
     }
 
-    .card {
+    .timer-wrapper input,
+    .timer-wrapper button {
         width: 100%;
-        padding: 14px;
-    }
-
-    #time {
-        font-size: 34px;
-    }
-
-    #date {
-        font-size: 14px;
-    }
-
-    input {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    button {
-        width: 100%;
-        margin-top: 5px;
     }
 
     .timer-buttons {
         flex-direction: column;
-    }
-
-    #links a {
-        display: block;
-        text-align: center;
-    }
-
-    /* 🔥 TIMER MOBILE FIX */
-    .timer-card .input-group {
-        flex-direction: column;
-    }
-
-    .timer-card .input-group input,
-    .timer-card .input-group button {
-        width: 100%;
     }
 }
