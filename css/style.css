@@ -1,10 +1,15 @@
+/* =========================
+   BASE (LIGHT MODE 🥚)
+========================= */
+
 body {
     font-family: 'Fredoka', poppins;
     background-color: #fff3b0;
 
+    /* 🥚 TELUR SENYUM */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='100' rx='60' ry='70' fill='%23fff8dc'/%3E%3Ccircle cx='80' cy='90' r='6' fill='%235a3d00'/%3E%3Ccircle cx='120' cy='90' r='6' fill='%235a3d00'/%3E%3Cpath d='M75 120 Q100 140 125 120' stroke='%235a3d00' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 
-    background-size: 120px 120px;
+    background-size: 110px 110px;
     margin: 0;
     transition: 0.3s;
 }
@@ -201,27 +206,26 @@ li {
 }
 
 /* =========================
-   DARK MODE MOCHA ☕🤎
+   DARK MODE ☕ (FIXED)
 ========================= */
 
 body.dark {
-    background-color: #2f221d !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%235f463a' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3Cpath d='M50 64 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0'/%3E%3C/g%3E%3C/svg%3E") !important;
-    background-size: 95px 95px !important;
-    color: #fff7ef !important;
+    background-color: #2f221d;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%235f463a' stroke-width='3'%3E%3Crect x='40' y='72' width='44' height='28' rx='7'/%3E%3Cpath d='M84 80 h10 a8 8 0 1 1 0 14 h-10'/%3E%3Cpath d='M50 64 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 95px 95px;
+    color: #fff7ef;
 }
 
+/* REMOVE !IMPORTANT BIAR GA TABRAKAN */
+
 body.dark .main-title {
-    background: #5b4338 !important;
-    color: #ffe2bf !important;
-    text-shadow: none !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    background: #5b4338;
+    color: #ffe2bf;
 }
 
 body.dark .card {
-    background: #6b5043 !important;
-    color: #fff7ef !important;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+    background: #6b5043;
+    color: #fff7ef;
 }
 
 body.dark h1,
@@ -231,53 +235,47 @@ body.dark span,
 body.dark li,
 body.dark a,
 body.dark label {
-    color: #fff7ef !important;
+    color: #fff7ef;
 }
 
 body.dark h2 {
-    color: #ffd8a0 !important;
+    color: #ffd8a0;
 }
 
 body.dark #time,
 body.dark #timer {
-    color: #ffe0b6 !important;
-    text-shadow: none !important;
+    color: #ffe0b6;
+    text-shadow: none;
 }
 
 body.dark #date {
-    color: #ffe8ca !important;
+    color: #ffe8ca;
 }
 
 body.dark li {
-    background: #7b5d4f !important;
+    background: #7b5d4f;
 }
 
 body.dark input {
-    background: #ffe7cc !important;
-    color: #3c2417 !important;
+    background: #ffe7cc;
+    color: #3c2417;
 }
 
 body.dark input::placeholder {
-    color: #8a6a58 !important;
+    color: #8a6a58;
 }
 
 body.dark button {
-    background: linear-gradient(135deg,#efbf86,#d69155) !important;
-    color: #3c2417 !important;
+    background: linear-gradient(135deg,#efbf86,#d69155);
+    color: #3c2417;
 }
 
 body.dark #links a {
-    background: #7b5d4f !important;
-    color: #fff0db !important;
-}
-
-/* Greeting + nama sama warna */
-body.dark #greeting,
-body.dark #greeting #nameDisplay {
-    color: #ffd8a0 !important;
+    background: #7b5d4f;
+    color: #fff0db;
 }
 
 body.dark #themeToggle {
-    background: #ffe0ba !important;
-    color: #4a2a18 !important;
+    background: #ffe0ba;
+    color: #4a2a18;
 }
