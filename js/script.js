@@ -377,5 +377,9 @@ document.addEventListener("keydown", function (e) {
         case "linkURL":
             addLink();
             break;
+            
+        case "customMinutes":
+            setCustomTimer();
+            break;
     }
 });
