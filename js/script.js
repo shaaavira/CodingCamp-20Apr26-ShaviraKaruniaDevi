@@ -390,3 +390,35 @@ document.addEventListener("keydown", function (e) {
         addLink();
     }
 });
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    const nameInput = document.getElementById("nameInput");
+    const taskInput = document.getElementById("taskInput");
+    const linkURL = document.getElementById("linkURL");
+
+    if (nameInput) {
+        nameInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                saveName();
+            }
+        });
+    }
+
+    if (taskInput) {
+        taskInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                addTask();
+            }
+        });
+    }
+
+    if (linkURL) {
+        linkURL.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                addLink();
+            }
+        });
+    }
+
+});
