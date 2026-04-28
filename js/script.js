@@ -16,17 +16,17 @@ window.onload = function () {
 function saveName() {
     const input = document.getElementById("nameInput").value;
 
-    if (input.trim() !== "") {
-        userName = input;
-        localStorage.setItem("username", userName);
+    if (input.trim() === "") return;
 
-        document.getElementById("nameDisplay").innerText = userName;
+    userName = input;
+    localStorage.setItem("username", userName);
 
-        updateTime();
-        playSound();
-        celebrateName();
-        clearInputs();
-    }
+    document.getElementById("nameDisplay").innerText = userName;
+
+    updateTime();
+    playSound();
+    celebrateName();
+    clearInputs();
 }
 
 function updateTime() {
@@ -63,11 +63,11 @@ let timeLeft = localStorage.getItem("timer")
     : 1500;
 
 function updateTimerDisplay() {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
+    let m = Math.floor(timeLeft / 60);
+    let s = timeLeft % 60;
 
     document.getElementById("timer").innerText =
-        `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
 function startTimer() {
@@ -97,65 +97,111 @@ function resetTimer() {
 }
 
 function setCustomTimer() {
-    const minutes = document.getElementById("customMinutes").value;
+    const val = document.getElementById("customMinutes").value;
 
-    if (minutes && minutes > 0) {
-        clearInterval(timer);
-        timeLeft = minutes * 60;
-        localStorage.setItem("timer", timeLeft);
-        updateTimerDisplay();
-        clearInputs();
-    }
+    if (val === "" || val <= 0) return;
+
+    clearInterval(timer);
+    timeLeft = val * 60;
+    localStorage.setItem("timer", timeLeft);
+    updateTimerDisplay();
+
+    clearInputs();
 }
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 function addTask() {
-    let input = document.getElementById("taskInput");
-    let text = input.value.trim();
+    const input = document.getElementById("taskInput");
+    const text = input.value.trim();
 
     if (text === "") return;
 
-    let isDuplicate = tasks.some(task =>
-        task.text.toLowerCase() === text.toLowerCase()
-    );
+    tasks.push({ text, done: false });
 
-    if (isDuplicate) return;
-
-    tasks.push({ text: text, done: false });
-    saveTasks();
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks();
+
     clearInputs();
 }
 
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+function renderTasks() {
+    const list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach((t, i) => {
+        const li = document.createElement("li");
+
+        const span = document.createElement("span");
+        span.innerText = t.text;
+
+        span.onclick = () => {
+            t.done = !t.done;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        };
+
+        if (t.done) {
+            span.style.textDecoration = "line-through";
+            span.style.opacity = "0.6";
+        }
+
+        const btn = document.createElement("button");
+        btn.innerText = "❌";
+        btn.onclick = () => {
+            tasks.splice(i, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        };
+
+        li.appendChild(span);
+        li.appendChild(btn);
+        list.appendChild(li);
+    });
 }
 
 let links = JSON.parse(localStorage.getItem("links")) || [];
 
 function addLink() {
-    let nameInput = document.getElementById("linkName");
-    let urlInput = document.getElementById("linkURL");
-
-    let name = nameInput.value.trim();
-    let url = urlInput.value.trim();
+    const name = document.getElementById("linkName").value.trim();
+    let url = document.getElementById("linkURL").value.trim();
 
     if (name === "" || url === "") return;
 
-    if (!url.startsWith("http")) {
-        url = "https://" + url;
-    }
+    if (!url.startsWith("http")) url = "https://" + url;
 
     links.push({ name, url });
 
-    saveLinks();
+    localStorage.setItem("links", JSON.stringify(links));
     renderLinks();
+
     clearInputs();
 }
 
-function saveLinks() {
-    localStorage.setItem("links", JSON.stringify(links));
+function renderLinks() {
+    const container = document.getElementById("links");
+    container.innerHTML = "";
+
+    links.forEach((l, i) => {
+        const div = document.createElement("div");
+
+        const a = document.createElement("a");
+        a.href = l.url;
+        a.target = "_blank";
+        a.innerText = l.name;
+
+        const btn = document.createElement("button");
+        btn.innerText = "❌";
+        btn.onclick = () => {
+            links.splice(i, 1);
+            localStorage.setItem("links", JSON.stringify(links));
+            renderLinks();
+        };
+
+        div.appendChild(a);
+        div.appendChild(btn);
+        container.appendChild(div);
+    });
 }
 
 function playSound() {
@@ -165,11 +211,7 @@ function playSound() {
     sound.pause();
     sound.currentTime = 0;
 
-    const playPromise = sound.play();
-
-    if (playPromise !== undefined) {
-        playPromise.catch(() => {});
-    }
+    sound.play().catch(() => {});
 
     setTimeout(() => {
         sound.pause();
@@ -177,10 +219,31 @@ function playSound() {
     }, 10000);
 }
 
+function celebrateName() {
+    const end = Date.now() + 2000;
+
+    (function frame() {
+        confetti({
+            particleCount: 6,
+            spread: 120,
+            origin: { x: 0.5, y: 0.6 }
+        });
+
+        if (Date.now() < end) requestAnimationFrame(frame);
+    })();
+}
+
 function clearInputs() {
-    document.getElementById("nameInput").value = "";
-    document.getElementById("taskInput").value = "";
-    document.getElementById("linkName").value = "";
-    document.getElementById("linkURL").value = "";
-    document.getElementById("customMinutes").value = "";
+    const ids = [
+        "nameInput",
+        "taskInput",
+        "linkName",
+        "linkURL",
+        "customMinutes"
+    ];
+
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = "";
+    });
 }
