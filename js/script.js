@@ -363,7 +363,19 @@ function updateThemeIcon() {
 document.addEventListener("keydown", function (e) {
     if (e.key !== "Enter") return;
 
-    if (document.activeElement.id === "nameInput") saveName();
-    if (document.activeElement.id === "taskInput") addTask();
-    if (document.activeElement.id === "linkURL") addLink();
+    const id = document.activeElement.id;
+
+    switch (id) {
+        case "nameInput":
+            saveName();
+            break;
+
+        case "taskInput":
+            addTask();
+            break;
+
+        case "linkURL":
+            addLink();
+            break;
+    }
 });
