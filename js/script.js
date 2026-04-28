@@ -379,9 +379,7 @@ document.addEventListener("keydown", function (e) {
             break;
             
         case "customMinutes":
-                setCustomTimer();
-                break;
-        }
-    });
-
+            setCustomTimer();
+            break;
+    }
 });
