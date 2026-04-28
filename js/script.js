@@ -22,9 +22,7 @@ function saveName() {
 
         document.getElementById("nameDisplay").innerText = userName;
         updateTime();
-        setTimeout(() => {
-            animateGreeting();
-        }, 120);
+        celebrateName();
     }
 }
 function updateTime() {
@@ -385,23 +383,41 @@ document.addEventListener("keydown", function (e) {
             break;
     }
 });
-function animateGreeting() {
-    const duration = 1200;
+function celebrateName() {
+    const duration = 2000;
     const end = Date.now() + duration;
+
+    const colors = ["#ffb703", "#fb8500", "#8ecae6", "#219ebc", "#ffffff"];
 
     (function frame() {
         confetti({
-            particleCount: 10,
-            spread: 160,
-            startVelocity: 45,
-            origin: {
-                x: Math.random(),
-                y: Math.random() - 0.2
-            }
+            particleCount: 6,
+            spread: 120,
+            startVelocity: 35,
+            gravity: 0.8,
+            origin: { x: 0, y: 0.6 },
+            colors
+        });
+
+        confetti({
+            particleCount: 6,
+            spread: 120,
+            startVelocity: 35,
+            gravity: 0.8,
+            origin: { x: 1, y: 0.6 },
+            colors
         });
 
         if (Date.now() < end) {
             requestAnimationFrame(frame);
         }
     })();
+
+    confetti({
+        particleCount: 80,
+        spread: 200,
+        startVelocity: 60,
+        origin: { x: 0.5, y: 0.4 },
+        colors
+    });
 }
