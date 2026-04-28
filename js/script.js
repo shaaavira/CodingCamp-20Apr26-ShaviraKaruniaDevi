@@ -27,6 +27,7 @@ function saveName() {
         document.getElementById("nameDisplay").innerText = userName;
         updateTime();
         celebrateName();
+        clearInputs(); 
     }
 }
 function updateTime() {
@@ -105,6 +106,8 @@ function setCustomTimer() {
         timeLeft = minutes * 60;
         localStorage.setItem("timer", timeLeft);
         updateTimerDisplay();
+        
+        clearInputs(); 
     }
 }
 
@@ -135,6 +138,8 @@ function addTask() {
 
     saveTasks();
     renderTasks();
+
+    clearInputs(); 
 }
 
 function getEmoji(text) {
@@ -258,6 +263,8 @@ function addLink() {
 
     saveLinks();
     renderLinks();
+
+    clearInputs(); 
 }
 
 function deleteLink(index) {
@@ -479,4 +486,11 @@ function playSound() {
         }
     }, 200);
 }, 8000);
+}
+function clearInputs() {
+    document.getElementById("nameInput").value = "";
+    document.getElementById("taskInput").value = "";
+    document.getElementById("linkName").value = "";
+    document.getElementById("linkURL").value = "";
+    document.getElementById("customMinutes").value = "";
 }
