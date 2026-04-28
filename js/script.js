@@ -383,14 +383,31 @@ document.addEventListener("keydown", function (e) {
             break;
     }
 });
+
+function saveName() {
+    const input = document.getElementById("nameInput").value;
+
+    if (input.trim() !== "") {
+
+        const sound = document.getElementById("popSound");
+        if (sound) {
+            sound.currentTime = 0;
+            sound.volume = 0.6;
+            sound.play().catch(() => {});
+        }
+
+        userName = input;
+        localStorage.setItem("username", userName);
+
+        document.getElementById("nameDisplay").innerText = userName;
+        updateTime();
+
+        celebrateName(); 
+    }
+}
 function celebrateName() {
     const duration = 2000;
     const end = Date.now() + duration;
-    const sound = document.getElementById("popSound");
-    if (sound) {
-        sound.currentTime = 0;
-        sound.play();
-    }
 
     const colors = ["#ffb703", "#fb8500", "#8ecae6", "#219ebc", "#ffffff"];
 
