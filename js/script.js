@@ -385,38 +385,23 @@ document.addEventListener("keydown", function (e) {
             break;
     }
 });
-
 function animateGreeting() {
-    const greet = document.getElementById("greeting");
-    if (!greet) return;
+    const duration = 1200;
+    const end = Date.now() + duration;
 
-    const originalHTML = greet.innerHTML;
+    (function frame() {
+        confetti({
+            particleCount: 10,
+            spread: 160,
+            startVelocity: 45,
+            origin: {
+                x: Math.random(),
+                y: Math.random() - 0.2
+            }
+        });
 
-    let sparkles = ["✨", "💫", "✨"];
-
-    greet.animate([
-        { transform: "scale(1)", opacity: 1 },
-        { transform: "scale(1.15)", opacity: 0.6 },
-        { transform: "scale(0.98)", opacity: 1 },
-        { transform: "scale(1.05)", opacity: 1 },
-        { transform: "scale(1)", opacity: 1 }
-    ], {
-        duration: 650,
-        easing: "ease-out"
-    });
-
-    let i = 0;
-
-    const interval = setInterval(() => {
-        greet.innerHTML = originalHTML + " " + sparkles[i];
-        i++;
-
-        if (i >= sparkles.length) {
-            clearInterval(interval);
-
-            setTimeout(() => {
-                greet.innerHTML = originalHTML;
-            }, 400);
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
         }
-    }, 180);
+    })();
 }
