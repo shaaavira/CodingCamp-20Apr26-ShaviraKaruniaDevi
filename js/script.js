@@ -360,3 +360,33 @@ function updateThemeIcon() {
     btn.innerText =
         document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
+document.getElementById("nameInput").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        saveName();
+    }
+});
+document.getElementById("taskInput").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});
+document.getElementById("linkURL").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        addLink();
+    }
+});
+document.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+
+    if (document.activeElement.id === "nameInput") {
+        saveName();
+    }
+
+    if (document.activeElement.id === "taskInput") {
+        addTask();
+    }
+
+    if (document.activeElement.id === "linkURL") {
+        addLink();
+    }
+});
