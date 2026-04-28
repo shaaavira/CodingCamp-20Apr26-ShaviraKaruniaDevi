@@ -22,6 +22,7 @@ function saveName() {
 
         document.getElementById("nameDisplay").innerText = userName;
         updateTime();
+        animateGreeting();
     }
 }
 
@@ -383,3 +384,28 @@ document.addEventListener("keydown", function (e) {
             break;
     }
 });
+
+function animateGreeting() {
+    const greet = document.getElementById("greeting");
+    const name = document.getElementById("nameDisplay");
+
+    if (!greet || !name) return;
+
+    // animasi pop
+    greet.animate([
+        { transform: "scale(1)", opacity: 1 },
+        { transform: "scale(1.08)", opacity: 0.7 },
+        { transform: "scale(1)", opacity: 1 }
+    ], {
+        duration: 300,
+        easing: "ease-out"
+    });
+
+    // efek sparkle ✨ sementara
+    const original = name.innerText;
+    name.innerText = original + " ✨";
+
+    setTimeout(() => {
+        name.innerText = original;
+    }, 600);
+}
