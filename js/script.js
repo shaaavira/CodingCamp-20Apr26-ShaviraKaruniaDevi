@@ -466,4 +466,17 @@ function playSound() {
             console.log("Audio blocked:", err);
         });
     }
+
+    setTimeout(() => {
+    let fade = setInterval(() => {
+        if (sound.volume > 0.05) {
+            sound.volume -= 0.05;
+        } else {
+            clearInterval(fade);
+            sound.pause();
+            sound.currentTime = 0;
+            sound.volume = 1;
+        }
+    }, 200);
+}, 8000);
 }
