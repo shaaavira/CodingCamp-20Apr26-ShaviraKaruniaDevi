@@ -3,6 +3,10 @@ let userName = localStorage.getItem("username") || "Guest";
 window.onload = function () {
     document.getElementById("nameDisplay").innerText = userName;
     document.getElementById("nameInput").value = userName;
+    const sound = document.getElementById("celebratePopsound");
+    if (sound) {
+        sound.load();
+    }
 
     updateTime();
     updateTimerDisplay();
@@ -405,7 +409,8 @@ function saveName() {
 
         document.getElementById("nameDisplay").innerText = userName;
         updateTime();
-
+        
+        playSound();
         celebrateName();
     }
 }
@@ -454,5 +459,11 @@ function playSound() {
     sound.pause();
     sound.currentTime = 0;
 
-    sound.play().catch(() => {});
+    const playPromise = sound.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(err => {
+            console.log("Audio blocked:", err);
+        });
+    }
 }
