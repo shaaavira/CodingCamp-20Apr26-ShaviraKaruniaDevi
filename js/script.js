@@ -3,10 +3,6 @@ let userName = localStorage.getItem("username") || "Guest";
 window.onload = function () {
     document.getElementById("nameDisplay").innerText = userName;
     document.getElementById("nameInput").value = userName;
-    const sound = document.getElementById("celebratePopsound");
-    if (sound) {
-        sound.load();
-    }
 
     updateTime();
     updateTimerDisplay();
@@ -25,16 +21,18 @@ function saveName() {
         localStorage.setItem("username", userName);
 
         document.getElementById("nameDisplay").innerText = userName;
+
         updateTime();
+        playSound();
         celebrateName();
-        clearInputs(); 
+        clearInputs();
     }
 }
+
 function updateTime() {
     const now = new Date();
 
-    document.getElementById("time").innerText =
-        now.toLocaleTimeString();
+    document.getElementById("time").innerText = now.toLocaleTimeString();
 
     const options = {
         weekday: "long",
@@ -106,17 +104,11 @@ function setCustomTimer() {
         timeLeft = minutes * 60;
         localStorage.setItem("timer", timeLeft);
         updateTimerDisplay();
-        
-        clearInputs(); 
+        clearInputs();
     }
 }
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-let dragIndex = null;
-
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
 
 function addTask() {
     let input = document.getElementById("taskInput");
@@ -128,120 +120,19 @@ function addTask() {
         task.text.toLowerCase() === text.toLowerCase()
     );
 
-    if (isDuplicate) {
-        alert("Task already exists! 🐣");
-        return;
-    }
+    if (isDuplicate) return;
 
     tasks.push({ text: text, done: false });
-    input.value = "";
-
     saveTasks();
     renderTasks();
-
-    clearInputs(); 
+    clearInputs();
 }
 
-function getEmoji(text) {
-    text = text.toLowerCase();
-
-    if (text.includes("rebus telur")) return "🥚";
-    if (text.includes("masak telur")) return "🍳";
-    if (text.includes("goreng telur")) return "🍳";
-    if (text.includes("masak")) return "🥘";
-    if (text.includes("belajar")) return "📚";
-    if (text.includes("makan")) return "🍜";
-    if (text.includes("tidur")) return "😴";
-    if (text.includes("kerja") || text.includes("tugas")) return "💻";
-    if (text.includes("bersih")) return "🧹";
-    if (text.includes("olahraga")) return "🏃";
-    if (text.includes("minum") || text.includes("kopi")) return "☕";
-
-    const isDark = document.body.classList.contains("dark");
-    return isDark ? "☕" : "🐣";
-}
-
-function toggleTask(index) {
-    tasks[index].done = !tasks[index].done;
-    saveTasks();
-    renderTasks();
-}
-
-function deleteTask(index) {
-    tasks.splice(index, 1);
-    saveTasks();
-    renderTasks();
-}
-
-function editTask(index) {
-    let newText = prompt("Edit your task:", tasks[index].text);
-
-    if (newText === null) return;
-
-    newText = newText.trim();
-
-    if (newText === "") return;
-
-    tasks[index].text = newText;
-
-    saveTasks();
-    renderTasks();
-}
-
-function renderTasks() {
-    let list = document.getElementById("taskList");
-    list.innerHTML = "";
-
-    tasks.forEach((task, index) => {
-        let li = document.createElement("li");
-
-        li.setAttribute("draggable", true);
-
-        li.addEventListener("dragstart", () => {
-            dragIndex = index;
-        });
-
-        li.addEventListener("dragover", (e) => {
-            e.preventDefault();
-        });
-
-        li.addEventListener("drop", () => {
-            let temp = tasks[dragIndex];
-            tasks[dragIndex] = tasks[index];
-            tasks[index] = temp;
-
-            saveTasks();
-            renderTasks();
-        });
-
-        let span = document.createElement("span");
-
-        const emoji = getEmoji(task.text);
-        span.innerText = emoji + " " + task.text;
-
-        span.onclick = () => toggleTask(index);
-        span.ondblclick = () => editTask(index);
-
-        if (task.done) {
-            span.style.textDecoration = "line-through";
-            span.style.opacity = "0.6";
-        }
-
-        let btn = document.createElement("button");
-        btn.innerText = "❌";
-        btn.onclick = () => deleteTask(index);
-
-        li.appendChild(span);
-        li.appendChild(btn);
-        list.appendChild(li);
-    });
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 let links = JSON.parse(localStorage.getItem("links")) || [];
-
-function saveLinks() {
-    localStorage.setItem("links", JSON.stringify(links));
-}
 
 function addLink() {
     let nameInput = document.getElementById("linkName");
@@ -258,207 +149,15 @@ function addLink() {
 
     links.push({ name, url });
 
-    nameInput.value = "";
-    urlInput.value = "";
-
     saveLinks();
     renderLinks();
-
-    clearInputs(); 
+    clearInputs();
 }
 
-function deleteLink(index) {
-    links.splice(index, 1);
-    saveLinks();
-    renderLinks();
+function saveLinks() {
+    localStorage.setItem("links", JSON.stringify(links));
 }
 
-function renderLinks() {
-    let container = document.getElementById("links");
-    container.innerHTML = "";
-
-    links.forEach((link, index) => {
-        let wrapper = document.createElement("div");
-        wrapper.classList.add("link-item");
-
-        let a = document.createElement("a");
-        a.href = link.url;
-
-        const isDark = document.body.classList.contains("dark");
-        a.innerText = (isDark ? "☕ " : "🐣 ") + link.name;
-
-        a.target = "_blank";
-
-        let delBtn = document.createElement("button");
-        delBtn.innerText = "❌";
-        delBtn.onclick = () => deleteLink(index);
-
-        wrapper.appendChild(a);
-        wrapper.appendChild(delBtn);
-
-        container.appendChild(wrapper);
-    });
-}
-
-function loadTheme() {
-    const saved = localStorage.getItem("theme");
-
-    if (saved === "dark") {
-        document.body.className = "dark";
-    } else {
-        document.body.className = "";
-    }
-
-    updateThemeIcon();
-    updateThemeText();
-    updateThemeEmoji();
-}
-
-function toggleTheme() {
-    if (document.body.classList.contains("dark")) {
-        document.body.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-    } else {
-        document.body.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-    }
-
-    updateThemeIcon();
-    updateThemeText();
-    updateThemeEmoji();
-}
-
-function updateThemeText() {
-    const title = document.getElementById("mainTitle");
-
-    if (!title) return;
-
-    if (document.body.classList.contains("dark")) {
-        title.innerText = "Hello, Latte-lly amazing ☕🤎";
-    } else {
-        title.innerText = "Hello, Egg-cellent friend 🫶🏻🐣";
-    }
-}
-
-function updateThemeEmoji() {
-    const isDark = document.body.classList.contains("dark");
-
-    const timerTitle = document.querySelector(".timer-card h2");
-    const taskTitle = document.querySelectorAll(".row .card")[1]?.querySelector("h2");
-    const linkTitle = document.querySelectorAll(".container > .card")[1]?.querySelector("h2");
-
-    if (timerTitle) {
-        timerTitle.innerText = isDark ? "☕ Coffee Focus" : "🍳 Focus Timer";
-    }
-
-    if (taskTitle) {
-        taskTitle.innerText = isDark ? "🧸 Cozy Tasks" : "🌻 Tasks";
-    }
-
-    if (linkTitle) {
-        linkTitle.innerText = isDark ? "🌰 Quick Links" : "🐥 Quick Links";
-    }
-
-    renderTasks();
-    renderLinks();
-}
-
-function updateThemeIcon() {
-    const btn = document.getElementById("themeToggle");
-
-    if (!btn) return;
-
-    btn.innerText =
-        document.body.classList.contains("dark") ? "☀️" : "🌙";
-}
-document.addEventListener("keydown", function (e) {
-    if (e.key !== "Enter") return;
-
-    const id = document.activeElement.id;
-
-    switch (id) {
-        case "nameInput":
-            saveName();
-            break;
-
-        case "taskInput":
-            addTask();
-            break;
-
-        case "linkURL":
-            addLink();
-            break;
-            
-        case "customMinutes":
-            setCustomTimer();
-            break;
-    }
-});
-
-function saveName() {
-    const input = document.getElementById("nameInput").value;
-    console.log(document.getElementById("celebratePopsound"));
-
-    if (input.trim() !== "") {
-
-        const sound = document.getElementById("celebratePopsound");
-        if (sound) {
-            sound.pause();
-            sound.currentTime = 0;
-
-            sound.play()
-                .then(() => console.log("sound ok"))
-                .catch(err => console.log("sound blocked", err));
-        }
-
-        userName = input;
-        localStorage.setItem("username", userName);
-
-        document.getElementById("nameDisplay").innerText = userName;
-        updateTime();
-        
-        playSound();
-        celebrateName();
-    }
-}
-function celebrateName() {
-    const duration = 2000;
-    const end = Date.now() + duration;
-
-    const colors = ["#ffb703", "#fb8500", "#8ecae6", "#219ebc", "#ffffff"];
-
-    (function frame() {
-        confetti({
-            particleCount: 6,
-            spread: 120,
-            startVelocity: 35,
-            gravity: 0.8,
-            origin: { x: 0, y: 0.6 },
-            colors
-        });
-
-        confetti({
-            particleCount: 6,
-            spread: 120,
-            startVelocity: 35,
-            gravity: 0.8,
-            origin: { x: 1, y: 0.6 },
-            colors
-        });
-
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
-    })();
-
-    confetti({
-        particleCount: 80,
-        spread: 200,
-        startVelocity: 60,
-        origin: { x: 0.5, y: 0.4 },
-        colors
-    });
-}
 function playSound() {
     const sound = document.getElementById("celebratePopsound");
     if (!sound) return;
@@ -469,24 +168,15 @@ function playSound() {
     const playPromise = sound.play();
 
     if (playPromise !== undefined) {
-        playPromise.catch(err => {
-            console.log("Audio blocked:", err);
-        });
+        playPromise.catch(() => {});
     }
 
     setTimeout(() => {
-    let fade = setInterval(() => {
-        if (sound.volume > 0.05) {
-            sound.volume -= 0.05;
-        } else {
-            clearInterval(fade);
-            sound.pause();
-            sound.currentTime = 0;
-            sound.volume = 1;
-        }
-    }, 200);
-}, 8000);
+        sound.pause();
+        sound.currentTime = 0;
+    }, 10000);
 }
+
 function clearInputs() {
     document.getElementById("nameInput").value = "";
     document.getElementById("taskInput").value = "";
