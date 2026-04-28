@@ -22,10 +22,11 @@ function saveName() {
 
         document.getElementById("nameDisplay").innerText = userName;
         updateTime();
-        animateGreeting();
+        setTimeout(() => {
+            animateGreeting();
+        }, 50);
     }
 }
-
 function updateTime() {
     const now = new Date();
 
@@ -387,25 +388,25 @@ document.addEventListener("keydown", function (e) {
 
 function animateGreeting() {
     const greet = document.getElementById("greeting");
-    const name = document.getElementById("nameDisplay");
 
-    if (!greet || !name) return;
+    if (!greet) return;
 
-    // animasi pop
+    // animasi pop lebih stabil (tidak tergantung nameDisplay)
     greet.animate([
         { transform: "scale(1)", opacity: 1 },
-        { transform: "scale(1.08)", opacity: 0.7 },
+        { transform: "scale(1.06)", opacity: 0.7 },
         { transform: "scale(1)", opacity: 1 }
     ], {
-        duration: 300,
+        duration: 350,
         easing: "ease-out"
     });
 
-    // efek sparkle ✨ sementara
-    const original = name.innerText;
-    name.innerText = original + " ✨";
+    // efek sparkle sementara tanpa ganggu DOM
+    const originalHTML = greet.innerHTML;
+
+    greet.innerHTML = originalHTML + " ✨";
 
     setTimeout(() => {
-        name.innerText = original;
-    }, 600);
+        greet.innerHTML = originalHTML;
+    }, 500);
 }
