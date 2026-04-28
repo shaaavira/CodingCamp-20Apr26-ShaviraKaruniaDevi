@@ -360,65 +360,12 @@ function updateThemeIcon() {
     btn.innerText =
         document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
-document.getElementById("nameInput").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        saveName();
-    }
-});
-document.getElementById("taskInput").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        addTask();
-    }
-});
-document.getElementById("linkURL").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        addLink();
-    }
-});
 document.addEventListener("keydown", function (e) {
     if (e.key !== "Enter") return;
 
-    if (document.activeElement.id === "nameInput") {
-        saveName();
-    }
+    const active = document.activeElement;
 
-    if (document.activeElement.id === "taskInput") {
-        addTask();
-    }
-
-    if (document.activeElement.id === "linkURL") {
-        addLink();
-    }
-});
-
-window.addEventListener("DOMContentLoaded", function () {
-
-    const nameInput = document.getElementById("nameInput");
-    const taskInput = document.getElementById("taskInput");
-    const linkURL = document.getElementById("linkURL");
-
-    if (nameInput) {
-        nameInput.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") {
-                saveName();
-            }
-        });
-    }
-
-    if (taskInput) {
-        taskInput.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") {
-                addTask();
-            }
-        });
-    }
-
-    if (linkURL) {
-        linkURL.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") {
-                addLink();
-            }
-        });
-    }
-
+    if (active.id === "nameInput") saveName();
+    if (active.id === "taskInput") addTask();
+    if (active.id === "linkURL") addLink();
 });
