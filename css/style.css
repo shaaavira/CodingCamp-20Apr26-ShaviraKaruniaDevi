@@ -573,4 +573,17 @@ body.dark #themeToggle {
   input {
     width: auto !important;
   }
+    #customMinutes {
+    width: 70px;
+    text-align: center;
+  }
+}
+.timer-set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* biar tetap tengah di desktop */
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
