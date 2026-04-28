@@ -13,9 +13,6 @@ window.onload = function () {
     document.getElementById("themeToggle").onclick = toggleTheme;
 };
 
-// =======================
-// SAVE NAME
-// =======================
 function saveName() {
     const input = document.getElementById("nameInput").value;
 
@@ -28,9 +25,6 @@ function saveName() {
     }
 }
 
-// =======================
-// CLOCK + GREETING
-// =======================
 function updateTime() {
     const now = new Date();
 
@@ -60,9 +54,6 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
-// =======================
-// TIMER
-// =======================
 let timer;
 let timeLeft = localStorage.getItem("timer")
     ? parseInt(localStorage.getItem("timer"))
@@ -113,9 +104,6 @@ function setCustomTimer() {
     }
 }
 
-// =======================
-// TASKS
-// =======================
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let dragIndex = null;
 
@@ -240,9 +228,6 @@ function renderTasks() {
     });
 }
 
-// =======================
-// QUICK LINKS
-// =======================
 let links = JSON.parse(localStorage.getItem("links")) || [];
 
 function saveLinks() {
@@ -304,10 +289,6 @@ function renderLinks() {
     });
 }
 
-// =======================
-// THEME (DARK / LIGHT MODE)
-// =======================
-
 function loadTheme() {
     const saved = localStorage.getItem("theme");
 
@@ -336,7 +317,6 @@ function toggleTheme() {
     updateThemeEmoji();
 }
 
-// 🔥 COFFEE TITLE
 function updateThemeText() {
     const title = document.getElementById("mainTitle");
 
@@ -349,7 +329,6 @@ function updateThemeText() {
     }
 }
 
-// 🔥 FIX JUDUL + EMOJI
 function updateThemeEmoji() {
     const isDark = document.body.classList.contains("dark");
 
